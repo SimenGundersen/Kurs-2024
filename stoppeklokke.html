@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stoppeklokke</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #timer {
+      font-size: 2em;
+      margin-top: 50px;
+    }
+    button {
+      font-size: 1em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+    <div id="timer">00:00:00</div>
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Stop</button>
+        <button onclick="reset()">Reset</button>
+
+  <script>
+        let timerDisplay = document.getElementById('timer');
+        let seconds = 0;
+        let minutes = 0;
+        let hours = 0;
+        let interval;
+
+    function start() {
+      clearInterval(interval);
+      interval = setInterval(updateTimer, 1000);
+    }
+
+    function stop() {
+      clearInterval(interval);
+    }
+
+    function reset() {
+      clearInterval(interval);
+      seconds = 0;
+      minutes = 0;
+      hours = 0;
+      timerDisplay.textContent = formatTime(hours) + ':' + formatTime(minutes) + ':' + formatTime(seconds);
+    }
+
+    function updateTimer() {
+      seconds++;
+        if (seconds == 60) {
+        seconds = 0;
+        minutes++;
+      }
+         if (minutes == 60) {
+        minutes = 0;
+        hours++;
+      }
+        timerDisplay.textContent = formatTime(hours) + ':' + formatTime(minutes) + ':' + formatTime(seconds);
+    }
+
+    function formatTime(time) {
+        return time < 10 ? '0' + time : time;
+    }
+  </script>
+</body>
+</html>

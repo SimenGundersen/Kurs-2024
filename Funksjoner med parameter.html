@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change the size color, text</title>
+    <style>
+        #myDiv {
+            width: 200px;
+            height: 100px;
+            background-color: lightgray;
+            font-size: 16px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="myDiv"></div>
+<button onclick="endreTekstFargeStorrelse('Ny tekst', 'red', '20px')">Rød + ny tekst </button>
+<button onclick="endreTekstFargeStorrelse('Annen tekst', 'blue', '16px')">Blå + ny tekst</button>
+
+<script>
+    function endreTekstFargeStorrelse(tekst, farge, storrelse) {
+        var divElement = document.getElementById('myDiv');
+        divElement.textContent = tekst;
+        divElement.style.color = farge;
+        divElement.style.fontSize = storrelse;
+    }
+</script>
+
+</body>
+</html>
